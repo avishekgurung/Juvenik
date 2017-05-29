@@ -1,0 +1,19 @@
+{
+  "name": "juvenik",
+  "version": "1.0.0",
+  "description": "Plug and play chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avishekgurung/Juvenik.git"
+  },
+  "author": "Avishek Gurung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avishekgurung/Juvenik/issues"
+  },
+  "homepage": "https://github.com/avishekgurung/Juvenik#readme"
+}
