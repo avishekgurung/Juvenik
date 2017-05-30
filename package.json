@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/avishekgurung/Juvenik/issues"
   },
-  "homepage": "https://github.com/avishekgurung/Juvenik#readme"
+  "homepage": "https://github.com/avishekgurung/Juvenik#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.10.3",
+    "mongoose-type-email": "^1.0.5",
+    "morgan": "^1.8.2"
+  }
 }
