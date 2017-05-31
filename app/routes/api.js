@@ -19,7 +19,7 @@ function createToken(user) {
     return token;
 }
 
-
+//User signing up
 var api = express.Router();
 api.post('/signup', function(req, res) {
     var user = new User({
@@ -47,6 +47,7 @@ api.get('/users', function(req, res) {
     });
 });
 
+//User loggin into the app
 api.post('/login', function(req, res) {
     User.findOne({email : req.body.email}, 'password', function(err, user) {
         if(err) {
@@ -68,6 +69,37 @@ api.post('/login', function(req, res) {
             token : token
         })
     })
+})
+
+/*
+ maintaining the session for the user. So all the request coming to api will land here, except the above request since they
+ do not use next() so it will not land here. Except that, all other request will come here. So this is a gateway for all the
+ request.
+ */
+api.use(function(req, res, next) {
+    console.log('Somebody just came into our app');
+    var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+    if(token) {
+        jsonwebtoken.verify(token, secretKey, function (err, decoded) {
+            if(err) {
+                res.status(403).send({success : false, message : 'Failed to authenticate user'});
+            }
+            else {
+                req.decoded = decoded;
+                //this will store the current user _id information as this is
+                // the fields that are used in createToken method. So now, all the middlewares that comes after this
+                //middleware will have user information stored in req.decoded
+                next();
+            }
+        })
+    }
+    else {
+        res.status(403).send({success : false, message : 'No token provided'});
+    }
+})
+
+api.get('/', function(req, res) {
+    res.json("Logged in as " + req.decoded);
 })
 
 module.exports = api;

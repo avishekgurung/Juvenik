@@ -28,6 +28,9 @@ app.use(morgan('dev'));
 var api = require('./app/routes/api');
 app.use('/api', api);
 
+var test = require('./app/routes/test');
+app.use('/test', test);
+
 app.get('*', function(req, res) {
     res.sendFile(__dirname + '/public/views/index.html');
 });
