@@ -5,5 +5,6 @@
 module.exports = {
     "database" : "mongodb://localhost:27017/juvenik",
     "port" : process.env.PORT || 3000,
-    "secretKey" : "YourSecretKey"
+    "secretKey" : "YourSecretKey",
+    "textDelayTime" : 10000
 }

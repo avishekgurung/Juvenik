@@ -9,8 +9,9 @@ var test = express.Router();
 
 test.get('/', function(req, res, next) {
     console.log('First method');
+    res.status(403).json({'message' : 'Helow'});
     //res.send('Go away');
-    next();
+    //next();
 })
 
 test.use(function(req, res) {

@@ -1,0 +1,49 @@
+<div>
+    <script>
+        //To be used generally, include it in a file when deploying
+        var chatContainer = document.getElementById("avishek_gurung");
+        function headerClicked (event){
+            var target = event.target;
+            var targetClass = target.getAttribute("class");
+            var chatHead = event.currentTarget;
+            var chatBox = chatHead.parentElement;
+            if(targetClass === 'chat-close-box') {
+                chatContainer.removeChild(chatBox);
+            }
+            else {
+                var chatBoxClass = chatBox.getAttribute("class");
+                if(chatBoxClass.indexOf("chat-box-minz") !== -1) { //already minimize
+                    if(targetClass !== "chat-minz-box") {
+                        chatBox.setAttribute("class", "chat-box chat-box-maxz");
+                    }
+                }
+                else {
+                    chatBox.setAttribute("class","chat-box chat-box-minz");
+                }
+            }
+        }
+    </script>
+    <div class="page-header">
+        <h1>Guest</h1>
+    </div>
+
+    <!--<div class="row">
+        <div class="chat-container" id="avishek_gurung">
+            <chat-box ng-repeat="chatBox in chatBoxes" obj=chatBox></chat-box>
+        </div>
+    </div>
+-->
+
+    <div class="row">
+        <div class="chat-container" id="avishek_gurung">
+            <chat-box ng-repeat="(key, value) in user" obj=value></chat-box>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div ng-click="chatNow()">Start chatting</div>
+        </div>
+    </div>
+
+</div>

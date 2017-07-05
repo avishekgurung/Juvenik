@@ -9,6 +9,7 @@ require('mongoose-type-email');
 
 var UserSchema = new Schema({
     name : String,
+
     email : {
         type : mongoose.SchemaTypes.Email,
         required : true,
@@ -16,10 +17,19 @@ var UserSchema = new Schema({
             unique : true
         }
     },
+
     password : {
         type : String,
         required : true,
         select : false //so that when we use select query, we do not get password
+    },
+
+    role : {
+        type : String
+    },
+
+    online : {
+        type : Boolean
     }
 });
 

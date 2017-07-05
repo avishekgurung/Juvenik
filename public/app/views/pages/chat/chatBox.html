@@ -1,0 +1,29 @@
+<div class="chat-box">
+    <div class="chat-head" onclick="headerClicked(event)">
+        <div class="chat-head-content">
+            <div class="chat-user-name">
+                {{user.name}}
+            </div>
+            <div class="chat-user-time">
+                Active yesterday
+            </div>
+        </div>
+        <div class="chat-close-box">
+            x
+        </div>
+        <div class="chat-minz-box">
+            _
+        </div>
+    </div>
+    <div class="chat-body">
+        <div class="chat-tool-bar">
+            Tool <span ng-click="closeCommunication()">XX</span>
+        </div>
+        <chat-display obj=obj.chatDisplay></chat-display>
+        <div class="chat-entry">
+            <div>
+                <input type="text" placeholder="Send a message" class="chat-text" ng-keypress="change($event)" ng-model="text">
+            </div>
+        </div>
+    </div>
+</div>
